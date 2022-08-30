@@ -8,6 +8,7 @@ Once you have specified your desired array size and contents, the OpenGL display
 From here the following controls should be available to you:
 
 - **S**: Begins bubble sort.
+- **Q**: Begins quick sort.
 - **Esc**: Exits out of the window.
 
 <h3>Video Demonstration:</h3>
@@ -16,11 +17,11 @@ From here the following controls should be available to you:
 
 <h3>Known Bugs:</h3>
 
-- If the program sorts for too long, it will freeze and only unfreeze once the sort has been completed.
+- If the program sorts for too long, it will freeze and will only unfreeze once the sort has been completed. This problem only occured for me during testing on Windows, on Linux there were no issues during testing.
 
 <h3>TODO:</h3>
 
-- Implement more sorting algorithmns.
+- Implement more sorting algorithms. ✅ Added quick sort.
 - On screen instructions.
 - Provide more customizability.
 - Scale the bars' Y axis relative to the window's resolution in order to prevent the bars from clipping beyond the window's boundaries.
