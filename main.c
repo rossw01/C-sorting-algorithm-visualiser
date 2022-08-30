@@ -27,19 +27,16 @@ void visual(int *arr, int j) {
     for (i = 0; i <= array_length; i++) {
         if (i == j) {
             glColor3f(0.0f, 1.0f, 0.0f);
-            glRecti(bar_width * i + padding,
-                    padding,
-                    bar_width * i + (bar_width - bar_spacing) + padding,
-                    padding + (arr[i] * 10));
+
         } else {
             glColor3f(1.0f, 0.0f, 0.0f);
-            glRecti(bar_width * i + padding,
-                    padding,
-                    bar_width * i + (bar_width - bar_spacing) + padding,
-                    padding + (arr[i] * 10));
         }
+        glRecti(bar_width * i + padding,
+                padding,
+                bar_width * i + (bar_width - bar_spacing) + padding,
+                padding + (arr[i] * 10));
     }
-    usleep(20000);
+    usleep(100000); // Speed could be set with 10000 * 1 - 10 depending on user input
     glFlush();
 }
 
@@ -48,6 +45,7 @@ void bubble_sort() {
     int i, j, temp;
 
     for (i = 0; i <= array_length; i++) {
+        visual(array,i);
         for (j = 0; j < array_length - 1 - i; j++) {
             if (array[j + 1] < array[j]) // Flip operator to change between ascending and descending
             {
@@ -60,12 +58,53 @@ void bubble_sort() {
     }
 }
 
+void quick_sort(int first, int last) {
+    int i, j, pivot, temp;
 
+    if (first < last) {
+        pivot = first;
+        i = first;
+        j = last;
+
+        while (i < j) {
+            while (array[i] <= array[pivot] && i < last) {
+                i++;
+                visual(array,i); // Visualize L pointer
+            }
+            while (array[j] > array[pivot]) {
+                j--;
+                visual(array,j); // Visualize R pointer
+            }
+            if (i < j) { // swap
+                temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+                visual(array, j);
+            }
+        }
+
+        temp = array[pivot];
+        array[pivot] = array[j];
+        array[j] = temp;
+
+        visual(array, i);
+        visual(array, j);
+
+        quick_sort(first, j - 1);
+        quick_sort(j + 1, last);
+    }
+}
+
+// Button press handler
 void keyboardEvent(unsigned char c) {
     if (c == 115) //s
     {
         bubble_sort();
-    } else if (c == 27) {
+    }
+    else if (c == 113) {
+        quick_sort(0, array_length - 1);
+    }
+    else if (c == 27) {
         exit(0);
     }
 }
