@@ -1,5 +1,5 @@
-# Sorting Algorithm Visualizer (C & OpenGL) 📊
-Basic sorting algorithm visualizer I made as a first program to practise working with C 😎. Graphics are created using OpenGL. When creating this, simplicity was my only real goal - I wanted to keep the code simple, easy to read, whilst obviously providing a decent level of functionality.
+# Sorting Algorithm Visualiser (C & OpenGL) 📊
+Basic sorting algorithm Visualiser I made as a first program to practise working with C 😎. Graphics are created using OpenGL. When creating this, simplicity was my only real goal - I wanted to keep the code simple, easy to read, whilst obviously providing a decent level of functionality.
 
 <h3>Instructions:</h3>
 
